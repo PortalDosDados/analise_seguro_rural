@@ -45,3 +45,6 @@ secrets.py
 *.log
 *.sqlite3
 db.sqlite3
+
+assets
+assets/
