@@ -1,5 +1,9 @@
 # 🌾 Análise de Seguro Rural (PSR - Brasil)
 
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge)
+
 Este projeto realiza a análise exploratória e modelagem de dados do **Programa de Subvenção ao Prêmio do Seguro Rural (PSR)**, gerido pelo Ministério da Agricultura, Pecuária e Abastecimento (MAPA).
 
 O objetivo é extrair inteligência de mercado e avaliar riscos agrícolas utilizando Python e Data Science.
