@@ -1,0 +1,47 @@
+# --- Byte-compiled / Otimizados ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Ambientes Virtuais (Onde ficam as bibliotecas instaladas) ---
+# É muito importante não subir isso, pois é pesado e específico da sua máquina
+env/
+venv/
+.env/
+.venv/
+
+# --- Distribuição e Builds ---
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Jupyter Notebooks (Para Ciência de Dados) ---
+.ipynb_checkpoints
+
+# --- IDEs e Editores (Arquivos de configuração do seu editor) ---
+.vscode/
+.idea/
+
+# --- Variáveis de Ambiente e Segurança (CRÍTICO PARA NEGÓCIOS) ---
+# Nunca suba suas senhas ou chaves de API
+.env
+.env.local
+config.py
+secrets.py
+
+# --- Logs e Bancos de Dados Locais ---
+*.log
+*.sqlite3
+db.sqlite3
