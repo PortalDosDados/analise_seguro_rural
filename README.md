@@ -1,75 +1,49 @@
 # 🌾 Análise de Seguro Rural (PSR - Brasil)
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15%2B-blue?style=for-the-badge&logo=postgresql&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow?style=for-the-badge)
 
-Este projeto realiza a análise exploratória e modelagem de dados do **Programa de Subvenção ao Prêmio do Seguro Rural (PSR)**, gerido pelo Ministério da Agricultura, Pecuária e Abastecimento (MAPA).
+## 👋 Sobre o Projeto
 
-O objetivo é extrair inteligência de mercado e avaliar riscos agrícolas utilizando Python e Data Science.
+Neste projeto, desenvolvi uma solução de ponta a ponta (End-to-End) para a análise de dados do **Programa de Subvenção ao Prêmio do Seguro Rural (PSR)**, gerido pelo Ministério da Agricultura (MAPA).
 
-## 🎯 Objetivos do Projeto
+Meu objetivo principal é extrair inteligência de mercado e avaliar riscos agrícolas aplicando técnicas de Engenharia de Dados e Data Science. Em vez de apenas visualizar dados, construí uma arquitetura robusta para ingerir, armazenar e analisar milhões de registros de apólices rurais.
 
-- **Análise de Sinistralidade:** Identificar quais culturas e regiões apresentam maior risco.
-- **Mapeamento Geográfico:** Visualizar a distribuição dos subsídios pelo Brasil.
-- **Modelagem Financeira:** Analisar a relação entre o *Valor da Garantia* e o *Prêmio Líquido*.
-- **Business Intelligence:** Fornecer insights para seguradoras (InsurTech) e produtores rurais (AgTech).
+## 🎯 Meus Objetivos
 
-## 📊 Fonte dos Dados
+Com esta aplicação, busco responder a perguntas críticas do agronegócio:
 
-Os dados são públicos e originários do **SISSER** (Sistema de Subvenção Econômica ao Prêmio do Seguro Rural).
+- **Análise de Sinistralidade:** Quais culturas e regiões apresentam maior risco financeiro?
+- **Inteligência Geográfica:** Onde estão concentrados os subsídios do governo?
+- **Modelagem Financeira:** Qual a correlação real entre o valor garantido e o prêmio pago?
+- **Insights de Negócio:** Fornecer dados acionáveis para seguradoras (InsurTechs) e produtores.
 
-- **Fonte Oficial:** [Dados Abertos - Agricultura](https://dados.agricultura.gov.br/dataset/sisser3)
-- **Período Analisado:** 2006 a 2015 (Base histórica)
+---
 
-## 🗂 Dicionário de Dados
+## 🏗️ Engenharia de Dados e Modelagem
 
-Com base na documentação oficial (`dicionariodedados-sisser.pdf`), as principais variáveis analisadas são:
+Uma das decisões mais importantes deste projeto foi a arquitetura do banco de dados. Para garantir a integridade dos cálculos financeiros e a precisão das coordenadas geográficas, optei por **não utilizar a inferência automática de tipos do Pandas** (`to_sql` padrão), que frequentemente trata datas como texto e valores monetários como float impreciso.
 
-### 📍 Localização
+Em vez disso, desenhei explicitamente o **Schema** do banco de dados PostgreSQL.
 
-- **LATITUDE / LONGITUDE**: Coordenadas geográficas da propriedade rural.
-- **UF / MUNICIPIO**: Estado e cidade da propriedade.
+### 🛠️ Decisões de Arquitetura
 
-### 🚜 Produção
+O script `manual_sql.py` contém a DDL (Data Definition Language) que desenvolvi, garantindo:
 
-- **NM_CULTURA_GLOBAL**: A cultura ou atividade segurada (Ex: Soja, Milho, Trigo, Uva).
-- **NM_CLASSIF_PRODUTO**: Classificação do tipo de seguro contratado.
-- **AREA_TOTAL**: Área total segurada (em hectares).
-- **ANIMAL**: Número de animais segurados (para pecuária).
-- **PRODUTIVIDADE_ESTIMADA**: Expectativa de produção indicada na apólice.
+1. **Integridade Única (`PRIMARY KEY`):** Defini a coluna `id_proposta` como chave primária, impedindo a duplicação de apólices na minha base analítica.
 
-### 💰 Valores Financeiros
+2. **Precisão Financeira (`NUMERIC`):** Para todas as colunas monetárias (como `vl_premio_liquido` e `valor_indenizacao`), utilizei `NUMERIC(18,2)`. Isso evita os erros clássicos de arredondamento de ponto flutuante (*floating point errors*) que ocorrem ao usar `FLOAT` ou `DOUBLE` em sistemas financeiros.
 
-- **VL_LIMITE_GARANTIA**: Valor total segurado (o valor da proteção).
-- **VL_PREMIO_LIQUIDO**: Custo do seguro (sem taxas).
-- **VL_SUBVENCAO_FEDERAL**: Valor pago pelo Governo Federal para ajudar o produtor.
-- **PE_TAXA**: Percentual da taxa do prêmio sobre o valor segurado.
+3. **Alta Precisão Geográfica:**
+    - Utilizei `NUMERIC(15,10)` para `latitude` e `longitude` decimais, garantindo a precisão necessária para plotagem futura em mapas de calor.
+    - Mantive as colunas de coordenadas originais (graus/minutos) como `VARCHAR` para preservação do dado bruto (*raw data*).
 
-## 🛠 Tecnologias Utilizadas
+4. **Tipagem Temporal:** Forcei a conversão de colunas de data para o tipo `DATE` nativo do PostgreSQL, o que facilita queries de séries temporais (ex: análises por safra ou ano fiscal).
 
-- **Python 3.x**
-- **Pandas:** Manipulação e limpeza de dados.
-- **NumPy:** Cálculos matemáticos.
-- **Matplotlib / Seaborn:** Visualização de dados.
-- **Jupyter Notebooks:** Prototipagem e análise interativa.
+### 📝 O Schema da Tabela (`tb_seguro_rural`)
 
-## 🗄️ Modelagem do Banco de Dados
-
-Para garantir a integridade e a precisão das análises financeiras e geográficas, optamos por não utilizar a inferência automática de tipos do Pandas (`to_sql` padrão). Em vez disso, definimos explicitamente o esquema (Schema) do banco de dados PostgreSQL.
-
-O script `manual_sql.py` é responsável pela DDL (Data Definition Language), criando a tabela `tb_seguro_rural` com as seguintes características de robustez:
-
-### 🛠️ Decisões de Arquitetura de Dados
-
-- **Chave Primária (`PRIMARY KEY`):** A coluna `id_proposta` foi definida como identificador único, garantindo que não haja duplicidade de apólices na base.
-- **Precisão Financeira (`NUMERIC`):** Para colunas monetárias (ex: `vl_premio_liquido`, `valor_indenizacao`), utilizamos `NUMERIC(18,2)` em vez de `FLOAT`. Isso evita erros de arredondamento de ponto flutuante, cruciais em cálculos financeiros.
-
-- **Dados Geográficos:**
-- Utilizamos `NUMERIC(15,10)` para `latitude` e `longitude` decimais, garantindo precisão máxima para plotagem em mapas.
-- Mantivemos as colunas de coordenadas originais (graus/minutos/segundos) como `VARCHAR` para preservação do dado bruto (raw data).
-
-- **Tipagem Temporal:** Conversão explícita de colunas de data para o tipo `DATE` (PostgreSQL), facilitando análises de séries temporais e coortes (ex: safras).
-
-### 📝 Esquema da Tabela (`tb_seguro_rural`)
+Abaixo, apresento a estrutura SQL que criei para suportar o volume de dados:
 
 ```sql
 CREATE TABLE tb_seguro_rural (
@@ -112,4 +86,74 @@ CREATE TABLE tb_seguro_rural (
     valor_indenizacao         NUMERIC(18, 2),
     evento_preponderante      VARCHAR(255)
 );
+````
 
+---
+
+## 📊 Os Dados
+
+Os dados utilizados são públicos e originários do **SISSER** (Sistema de Subvenção Econômica ao Prêmio do Seguro Rural).
+
+- **Fonte Oficial:** [Dados Abertos - Agricultura](https://dados.agricultura.gov.br/dataset/sisser3)
+
+### Dicionário de Variáveis
+
+Baseado na documentação oficial, foquei nas seguintes variáveis para a modelagem:
+
+| Categoria | Variáveis Principais | Descrição |
+| :--- | :--- | :--- |
+| **📍 Localização** | `LATITUDE`, `LONGITUDE`, `UF` | Coordenadas e estado da propriedade rural. |
+| **🚜 Produção** | `NM_CULTURA_GLOBAL`, `AREA_TOTAL` | Tipo de cultura (ex: Soja, Milho) e tamanho da área em hectares. |
+| **💰 Financeiro** | `VL_LIMITE_GARANTIA` | Valor total da proteção (seguro). |
+| **📉 Custo** | `VL_PREMIO_LIQUIDO` | Custo do seguro sem taxas. |
+| **🏛️ Governo** | `VL_SUBVENCAO_FEDERAL` | Valor subsidiado pelo governo. |
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+
+- Python 3.11+
+
+- PostgreSQL instalado e rodando
+
+- Arquivo `.env` configurado na raiz (veja abaixo)
+
+### 1\. Configuração de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto para proteger suas credenciais:
+
+```ini
+DB_USER=seu_usuario
+DB_PASS=sua_senha
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=db_seguro_rural
+```
+
+### 2\. Instalação das Dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3\. Criação do Banco de Dados
+
+Execute o script de modelagem para criar a tabela com o schema otimizado:
+
+```bash
+python manual_sql.py
+```
+
+---
+
+## 🛠 Tecnologias
+
+- **Python:** Linguagem principal.
+- **PostgreSQL:** Banco de dados relacional robusto.
+- **SQLAlchemy:** ORM e gerenciamento de conexões.
+- **Pandas:** Manipulação e limpeza de dados (ETL).
+- **Matplotlib/Seaborn:** Visualização de dados.
+
+<!-- end list -->
