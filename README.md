@@ -35,7 +35,9 @@ analise_seguro_rural/
 ├── README.md
 ├── requirements.txt
 ├── download_csv.py   # Extração e consolidação dos CSVs do PSR (2006–2025)
-└── database.py       # Conexão SQLAlchemy com PostgreSQL via .env
+├── database.py       # Conexão SQLAlchemy com PostgreSQL via .env
+├── setup_db.py       # Criação dos schemas bronze/silver/gold e tabelas iniciais
+└── load_bronze.py    # Carga bruta dos CSVs para bronze.psr_raw via COPY
 ```
 
 ---
@@ -54,12 +56,14 @@ pip install -r requirements.txt
 python download_csv.py
 ```
 
-### 3. Testar conexão com o PostgreSQL
+### 3. Testar conexão e estruturar o banco (Medalhão)
 
 Configure o `.env` (`DB_USER`, `DB_PASS`, `DB_HOST`, `DB_PORT`, `DB_NAME`) e execute:
 
 ```bash
 python database.py
+python setup_db.py
+python load_bronze.py
 ```
 
 ### 4. Lint e Testes

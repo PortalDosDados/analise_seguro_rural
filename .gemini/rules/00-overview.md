@@ -15,5 +15,7 @@
 - Instalar deps: `pip install -r requirements.txt` `[README.md]`
 - Extrair/consolidar CSVs: `python download_csv.py` `[README.md]`
 - Testar conexão PostgreSQL: `python database.py` `[database.py]`
+- Estruturar schemas Medalhão: `python setup_db.py` `[setup_db.py]`
+- Carregar camada bronze: `python load_bronze.py` `[load_bronze.py]`
 - Lint Python: `ruff check .` `[pyproject.toml]`
 - Testes unitários: `pytest` `[pyproject.toml]`
