@@ -1,0 +1,61 @@
+table dim_calendario
+	lineageTag: f1cad91a-e148-433a-9a51-45dc5cdf5c5a
+	dataCategory: Time
+
+	column dt_referencia
+		dataType: dateTime
+		isUnique
+		isKey
+		formatString: dd/MM/yyyy
+		lineageTag: c0dc433d-98ec-44f7-b147-0b573165d0db
+		summarizeBy: none
+		sourceColumn: dt_referencia
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano
+		dataType: int64
+		lineageTag: 82d1a183-9bb4-4772-8fc5-fc85c9f40653
+		summarizeBy: none
+		sourceColumn: ano
+
+	column semestre
+		dataType: int64
+		lineageTag: 416d60e2-5705-4280-8f14-753826015c79
+		summarizeBy: none
+		sourceColumn: semestre
+
+	column trimestre
+		dataType: int64
+		lineageTag: 15ffe11d-dde2-4cb3-aacc-01a0a6116f5f
+		summarizeBy: none
+		sourceColumn: trimestre
+
+	column mes
+		dataType: int64
+		lineageTag: b219c04f-e37f-4657-9c9e-75feb7156818
+		summarizeBy: none
+		sourceColumn: mes
+
+	column nome_mes
+		dataType: string
+		lineageTag: 1070318b-68dd-40f9-ae24-ee5cb4ea40ec
+		sourceColumn: nome_mes
+		sortByColumn: mes
+
+	column ano_mes
+		dataType: string
+		lineageTag: 47cce129-a09d-4f08-8a83-cc6432b8e3ec
+		sourceColumn: ano_mes
+
+	partition dim_calendario = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost:5432", "db_seguro_rural"),
+				    gold_dim_calendario = Fonte{[Schema="gold",Item="dim_calendario"]}[Data]
+				in
+				    gold_dim_calendario
+

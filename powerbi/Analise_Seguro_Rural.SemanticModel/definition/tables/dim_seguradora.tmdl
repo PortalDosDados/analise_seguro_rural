@@ -1,0 +1,23 @@
+table dim_seguradora
+	lineageTag: 68f20c81-4ee7-4b43-bb13-661edc0803ef
+
+	column sk_seguradora
+		dataType: int64
+		isKey
+		lineageTag: eec23da5-b436-480b-aa55-f0cdcb647d7a
+		sourceColumn: sk_seguradora
+
+	column nm_razao_social
+		dataType: string
+		lineageTag: d19e1326-86b3-4b39-8b0b-5622b305268b
+		sourceColumn: nm_razao_social
+
+	partition dim_seguradora = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost:5432", "db_seguro_rural"),
+				    gold_dim_seguradora = Fonte{[Schema="gold",Item="dim_seguradora"]}[Data]
+				in
+				    gold_dim_seguradora
+

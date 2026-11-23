@@ -1,0 +1,93 @@
+table _Medidas
+	lineageTag: 8e5b9563-90a0-4c7d-ad07-d26378a524f2
+
+	measure 'Qtd Apólices' = COUNTROWS(fct_apolices)
+		formatString: #,##0
+		displayFolder: 01 - Volume e Área
+		lineageTag: ba7ec2f6-64b8-4a48-a527-ff9c4b63c580
+
+	measure 'Qtd Sinistros' = CALCULATE(COUNTROWS(fct_apolices), fct_apolices[fl_sinistro] = TRUE())
+		formatString: #,##0
+		displayFolder: 01 - Volume e Área
+		lineageTag: 1e3384ed-bec0-4355-b689-f82d819ee6ea
+
+	measure 'Taxa de Sinistro (%)' = DIVIDE([Qtd Sinistros], [Qtd Apólices])
+		formatString: 0.00%
+		displayFolder: 01 - Volume e Área
+		lineageTag: 2d8281f1-c29b-4024-a53b-0948dc57bc4f
+
+	measure 'Área Segurada (ha)' = SUM(fct_apolices[nr_area_total])
+		formatString: #,##0.00
+		displayFolder: 01 - Volume e Área
+		lineageTag: 20bfd2d9-f218-4f90-bebf-9e42cae91f13
+
+	measure 'Limite de Garantia' = SUM(fct_apolices[vl_limite_garantia])
+		formatString: "R$" #,##0.00;-"R$" #,##0.00;"R$" 0.00
+		displayFolder: 02 - Financeiro (R$)
+		lineageTag: ed16a793-03dd-4f06-a974-348f57f22c0d
+
+	measure 'Prêmio Líquido' = SUM(fct_apolices[vl_premio_liquido])
+		formatString: "R$" #,##0.00;-"R$" #,##0.00;"R$" 0.00
+		displayFolder: 02 - Financeiro (R$)
+		lineageTag: 36c35ff2-f53e-4e6f-a623-8bf394c0d7a0
+
+	measure 'Subvenção Federal' = SUM(fct_apolices[vl_subvencao_federal])
+		formatString: "R$" #,##0.00;-"R$" #,##0.00;"R$" 0.00
+		displayFolder: 02 - Financeiro (R$)
+		lineageTag: 00bf4e6d-f6a4-44f7-b864-a90dfcc8bb14
+
+	measure 'Prêmio Produtor' = SUM(fct_apolices[vl_premio_produtor])
+		formatString: "R$" #,##0.00;-"R$" #,##0.00;"R$" 0.00
+		displayFolder: 02 - Financeiro (R$)
+		lineageTag: a6d0093a-f26f-4ae4-a1ae-59fc9070b213
+
+	measure 'Valor Indenizado' = SUM(fct_apolices[valor_indenizacao])
+		formatString: "R$" #,##0.00;-"R$" #,##0.00;"R$" 0.00
+		displayFolder: 02 - Financeiro (R$)
+		lineageTag: 6839a845-a4a4-4647-9072-a9609bcbea28
+
+	measure 'Ticket Médio Garantia' = DIVIDE([Limite de Garantia], [Qtd Apólices])
+		formatString: "R$" #,##0.00;-"R$" #,##0.00;"R$" 0.00
+		displayFolder: 02 - Financeiro (R$)
+		lineageTag: 9716ead2-7186-4dfc-9068-40b4a9d4b66d
+
+	measure 'Índice de Sinistralidade' = DIVIDE([Valor Indenizado], [Prêmio Líquido])
+		formatString: 0.00%
+		displayFolder: 03 - Risco e Indicadores
+		lineageTag: f09f71d5-f96a-4aa9-aa93-67f886e00f07
+
+	measure '% Subvenção sobre Prêmio' = DIVIDE([Subvenção Federal], [Prêmio Líquido])
+		formatString: 0.00%
+		displayFolder: 03 - Risco e Indicadores
+		lineageTag: ee5672f2-5945-4cd3-bddb-d64c9506fa2e
+
+	measure 'Taxa Média (%)' = AVERAGE(fct_apolices[pe_taxa])
+		formatString: 0.00%
+		displayFolder: 03 - Risco e Indicadores
+		lineageTag: 8bb1d778-cef6-44e9-ab28-0bba5a451cd8
+
+	measure 'Cobertura Média (%)' = AVERAGE(fct_apolices[nivel_de_cobertura])
+		formatString: 0.00%
+		displayFolder: 03 - Risco e Indicadores
+		lineageTag: 73b60e82-de2c-494a-b2b0-3243f3b95bcf
+
+	measure 'Prêmio Ano Anterior' = CALCULATE([Prêmio Líquido], SAMEPERIODLASTYEAR(dim_calendario[dt_referencia]))
+		formatString: "R$" #,##0.00;-"R$" #,##0.00;"R$" 0.00
+		displayFolder: 04 - Inteligência Temporal
+		lineageTag: 96a5db21-b689-41c6-8bb5-25b8e1473559
+
+	measure 'Crescimento Prêmio YoY (%)' = DIVIDE([Prêmio Líquido] - [Prêmio Ano Anterior], [Prêmio Ano Anterior])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 04 - Inteligência Temporal
+		lineageTag: bc8f452c-a516-4a2d-9be2-e69631bf77ce
+
+	column _col
+		isHidden
+		lineageTag: a25c7683-1f40-439a-b3d7-6072e8880e67
+		isNameInferred
+		sourceColumn: [_col]
+
+	partition _Medidas = calculated
+		mode: import
+		source = ROW("_col", BLANK())
+

@@ -1,0 +1,20 @@
+relationship fct_apolices_dt_apolice_dim_calendario_dt_referencia
+	fromColumn: fct_apolices.dt_apolice
+	toColumn: dim_calendario.dt_referencia
+
+relationship fct_apolices_sk_localidade_dim_localidade_sk_localidade
+	fromColumn: fct_apolices.sk_localidade
+	toColumn: dim_localidade.sk_localidade
+
+relationship fct_apolices_sk_cultura_dim_cultura_sk_cultura
+	fromColumn: fct_apolices.sk_cultura
+	toColumn: dim_cultura.sk_cultura
+
+relationship fct_apolices_sk_seguradora_dim_seguradora_sk_seguradora
+	fromColumn: fct_apolices.sk_seguradora
+	toColumn: dim_seguradora.sk_seguradora
+
+relationship fct_apolices_sk_evento_dim_evento_sk_evento
+	fromColumn: fct_apolices.sk_evento
+	toColumn: dim_evento.sk_evento
+

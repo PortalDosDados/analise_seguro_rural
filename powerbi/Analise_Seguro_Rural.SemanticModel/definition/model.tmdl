@@ -1,0 +1,25 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+annotation PBI_QueryOrder = ["dim_seguradora","dim_calendario","dim_localidade","dim_cultura","dim_evento","fct_apolices"]
+
+ref table dim_seguradora
+ref table dim_calendario
+ref table dim_localidade
+ref table dim_cultura
+ref table dim_evento
+ref table fct_apolices
+ref table _Medidas
+
+ref cultureInfo pt-BR
+

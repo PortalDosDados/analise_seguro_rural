@@ -1,0 +1,148 @@
+table fct_apolices
+	lineageTag: c6f39210-b35a-4e9c-b842-14c6495d6eb1
+
+	column id_proposta
+		dataType: int64
+		isKey
+		lineageTag: 75c3fcf3-3bfc-4c78-82c7-7e9d93ea706f
+		summarizeBy: none
+		sourceColumn: id_proposta
+
+	column dt_apolice
+		dataType: dateTime
+		formatString: dd/MM/yyyy
+		lineageTag: 3d1aca77-9a82-4b01-be78-bb11742e67dd
+		summarizeBy: none
+		sourceColumn: dt_apolice
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_localidade
+		dataType: int64
+		isHidden
+		lineageTag: bee6a36f-ba7f-4786-9806-27021fc19973
+		summarizeBy: none
+		sourceColumn: sk_localidade
+
+	column sk_cultura
+		dataType: int64
+		isHidden
+		lineageTag: 495a7ea1-8cff-4883-b705-2e1625f8025f
+		summarizeBy: none
+		sourceColumn: sk_cultura
+
+	column sk_seguradora
+		dataType: int64
+		isHidden
+		lineageTag: 54f0f748-cfd9-4384-b62f-4e26e26214fa
+		summarizeBy: none
+		sourceColumn: sk_seguradora
+
+	column sk_evento
+		dataType: int64
+		isHidden
+		lineageTag: 9f8e7166-d77c-40d6-93cc-60def7b61831
+		summarizeBy: none
+		sourceColumn: sk_evento
+
+	column ano_apolice
+		dataType: int64
+		lineageTag: 8c4476f1-a000-45ea-ad97-8e3122ce096d
+		summarizeBy: none
+		sourceColumn: ano_apolice
+
+	column nr_area_total
+		dataType: double
+		lineageTag: 612d89fc-d691-4ef7-9777-9146bc0652ed
+		sourceColumn: nr_area_total
+
+	column vl_limite_garantia
+		dataType: double
+		lineageTag: 37065202-096d-4c45-a234-57465e29271d
+		summarizeBy: sum
+		sourceColumn: vl_limite_garantia
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vl_premio_liquido
+		dataType: double
+		lineageTag: f6187fe7-5782-41b4-9894-eef287e0c89f
+		summarizeBy: sum
+		sourceColumn: vl_premio_liquido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vl_subvencao_federal
+		dataType: double
+		lineageTag: 36fa5802-ba1d-4e3d-8805-5ba0cce55d24
+		summarizeBy: sum
+		sourceColumn: vl_subvencao_federal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vl_premio_produtor
+		dataType: double
+		lineageTag: 9c18cf13-7d9d-4193-aba0-bf771bacd5ab
+		summarizeBy: sum
+		sourceColumn: vl_premio_produtor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pe_taxa
+		dataType: double
+		lineageTag: cd0aea24-4cf6-41b2-9e29-c98c7d972bc4
+		sourceColumn: pe_taxa
+
+	column nivel_de_cobertura
+		dataType: double
+		lineageTag: b4a1f667-79f7-4cd8-90dd-2eaa3e0c66ec
+		sourceColumn: nivel_de_cobertura
+
+	column valor_indenizacao
+		dataType: double
+		lineageTag: 7d592bf6-7cd3-4c0e-b944-cfa8543a6ff6
+		summarizeBy: sum
+		sourceColumn: valor_indenizacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fl_sinistro
+		dataType: boolean
+		lineageTag: f9c3089b-1918-4106-8938-e70a24bf8fc4
+		sourceColumn: fl_sinistro
+
+	column nr_decimal_latitude
+		dataType: double
+		lineageTag: f14cdd1d-cc16-45d5-8669-1e723af10f93
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: nr_decimal_latitude
+
+	column nr_decimal_longitude
+		dataType: double
+		lineageTag: 83a2215b-4b0a-4ed1-bd8f-db71c871d029
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: nr_decimal_longitude
+
+	partition fct_apolices = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost:5432", "db_seguro_rural"),
+				    gold_fct_apolices = Fonte{[Schema="gold",Item="fct_apolices"]}[Data]
+				in
+				    gold_fct_apolices
+

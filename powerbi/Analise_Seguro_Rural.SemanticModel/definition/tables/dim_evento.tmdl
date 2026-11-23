@@ -1,0 +1,26 @@
+table dim_evento
+	lineageTag: 91e6147b-ae42-4c3c-b5b8-d9ed449e49f2
+
+	column sk_evento
+		dataType: int64
+		isHidden
+		isKey
+		lineageTag: 53a20a29-424a-4739-aaf5-0654c7e47d72
+		sourceColumn: sk_evento
+
+	column evento_preponderante
+		dataType: string
+		lineageTag: 6b8cada5-4e5b-49a5-a877-c0017c8106d8
+		sourceColumn: evento_preponderante
+
+	partition dim_evento = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost:5432", "db_seguro_rural"),
+				    gold_dim_evento = Fonte{[Schema="gold",Item="dim_evento"]}[Data]
+				in
+				    gold_dim_evento
+
+	annotation PBI_ResultType = Table
+

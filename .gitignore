@@ -52,3 +52,4 @@ assets/
 data/
 .pytest_cache/
 .ruff_cache/
+**/.pbi/

@@ -28,6 +28,7 @@ O banco PostgreSQL (`db_seguro_rural`) segue a arquitetura em 3 schemas:
 analise_seguro_rural/
 ├── .agents/          # Isolamento de workspace (plugins/skills)
 ├── .gemini/rules/    # Diretrizes modulares de engenharia e governança
+├── powerbi/          # Projeto Power BI (.pbip: SemanticModel TMDL + Report)
 ├── tests/            # Testes unitários (pytest)
 ├── .gitignore
 ├── GEMINI.md
