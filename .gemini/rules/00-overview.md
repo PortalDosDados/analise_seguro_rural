@@ -18,5 +18,6 @@
 - Estruturar schemas Medalhão: `python setup_db.py` `[setup_db.py]`
 - Carregar camada bronze: `python load_bronze.py` `[load_bronze.py]`
 - Carregar camada silver: `python load_silver.py` `[load_silver.py]`
+- Carregar camada gold: `python load_gold.py` `[load_gold.py]`
 - Lint Python: `ruff check .` `[pyproject.toml]`
 - Testes unitários: `pytest` `[pyproject.toml]`

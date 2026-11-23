@@ -38,7 +38,8 @@ analise_seguro_rural/
 ├── database.py       # Conexão SQLAlchemy com PostgreSQL via .env
 ├── setup_db.py       # Criação dos schemas bronze/silver/gold e tabelas iniciais
 ├── load_bronze.py    # Carga bruta dos CSVs para bronze.psr_raw via COPY
-└── load_silver.py    # Transformação ELT idempotente bronze -> silver
+├── load_silver.py    # Transformação ELT idempotente bronze -> silver (silver.psr_clean)
+└── load_gold.py      # Modelagem Star Schema e views analíticas para Power BI
 ```
 
 ---
@@ -66,6 +67,7 @@ python database.py
 python setup_db.py
 python load_bronze.py
 python load_silver.py
+python load_gold.py
 ```
 
 ### 4. Lint e Testes
