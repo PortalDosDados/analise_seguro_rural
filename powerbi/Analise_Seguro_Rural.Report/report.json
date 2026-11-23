@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"type\":2,\"version\":{\"visual\":\"1.8.89\",\"report\":\"2.0.89\",\"page\":\"1.3.89\"}},\"customTheme\":{\"name\":\"AgroPSRTheme.json\",\"type\":1,\"version\":{\"visual\":\"1.8.89\",\"report\":\"2.0.89\",\"page\":\"1.3.89\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"objects\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"type\":2,\"version\":{\"visual\":\"1.8.89\",\"report\":\"2.0.89\",\"page\":\"1.3.89\"}},\"customTheme\":{\"name\":\"AgroPSRTheme.json\",\"type\":1,\"version\":{\"visual\":\"1.8.89\",\"report\":\"2.0.89\",\"page\":\"1.3.89\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2}",
   "layoutOptimization": 0,
   "resourcePackages": [
     {
@@ -41,21 +41,21 @@
       "name": "ReportSectionExecutiva",
       "visualContainers": [
         {
-          "config": "{\"name\":\"p1_culturas\",\"layouts\":[{\"id\":0,\"position\":{\"x\":808,\"y\":280,\"z\":12000,\"width\":456,\"height\":424,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_cultura.nm_cultura_global\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Prêmio Líquido\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_cultura\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"dim_cultura.nm_cultura_global\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"},\"Name\":\"_Medidas.Prêmio Líquido\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"}}}]},\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Prêmio Líquido por Cultura'\"}}}}}]}}}",
-          "filters": "[]",
-          "height": 424.00,
+          "config": "{\"name\":\"p1_culturas\",\"layouts\":[{\"id\":0,\"position\":{\"x\":808,\"y\":258,\"z\":12000,\"width\":456,\"height\":446,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_cultura.nm_cultura_global\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Prêmio Líquido\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_cultura\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"dim_cultura.nm_cultura_global\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"},\"Name\":\"_Medidas.Prêmio Líquido\"}]},\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Top 10 Culturas por Prêmio Líquido'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"flt_top10_cult_premio\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_cultura\"}},\"Property\":\"nm_cultura_global\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_cultura\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"}}}],\"Top\":10}}},\"Type\":2},{\"Name\":\"d\",\"Entity\":\"dim_cultura\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"nm_cultura_global\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0}]",
+          "height": 446.00,
           "width": 456.00,
           "x": 808.00,
-          "y": 280.00,
+          "y": 258.00,
           "z": 12000.00
         },
         {
-          "config": "{\"name\":\"p1_evolucao\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":280,\"z\":11000,\"width\":784,\"height\":440,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.ano\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Prêmio Líquido\"},{\"queryRef\":\"_Medidas.Valor Indenizado\"}],\"Y2\":[{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"ano\"},\"Name\":\"dim_calendario.ano\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"},\"Name\":\"_Medidas.Prêmio Líquido\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Valor Indenizado\"},\"Name\":\"_Medidas.Valor Indenizado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Evolução Anual: Prêmio Líquido vs. Indenização e Sinistralidade (%)'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_evolucao\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":258,\"z\":11000,\"width\":780,\"height\":446,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_calendario.ano\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Prêmio Líquido\"},{\"queryRef\":\"_Medidas.Valor Indenizado\"}],\"Y2\":[{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_calendario\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"ano\"},\"Name\":\"dim_calendario.ano\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"},\"Name\":\"_Medidas.Prêmio Líquido\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Valor Indenizado\"},\"Name\":\"_Medidas.Valor Indenizado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Evolução Anual: Prêmio Líquido vs. Indenização e Sinistralidade (%)'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 440.00,
-          "width": 784.00,
+          "height": 446.00,
+          "width": 780.00,
           "x": 16.00,
-          "y": 280.00,
+          "y": 258.00,
           "z": 11000.00
         },
         {
@@ -68,92 +68,92 @@
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"p1_k1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":168,\"z\":6000,\"width\":240,\"height\":104,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Qtd Apólices\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Qtd Apólices\"},\"Name\":\"_Medidas.Qtd Apólices\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total de Apólices'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_k1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":144,\"z\":6000,\"width\":240,\"height\":102,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Qtd Apólices\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Qtd Apólices\"},\"Name\":\"_Medidas.Qtd Apólices\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total de Apólices'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 104.00,
+          "height": 102.00,
           "width": 240.00,
           "x": 16.00,
-          "y": 168.00,
+          "y": 144.00,
           "z": 6000.00
         },
         {
-          "config": "{\"name\":\"p1_k2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":264,\"y\":168,\"z\":7000,\"width\":240,\"height\":104,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Limite de Garantia\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Limite de Garantia\"},\"Name\":\"_Medidas.Limite de Garantia\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Limite de Garantia'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_k2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":268,\"y\":144,\"z\":7000,\"width\":240,\"height\":102,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Limite de Garantia\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Limite de Garantia\"},\"Name\":\"_Medidas.Limite de Garantia\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Limite de Garantia'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 104.00,
+          "height": 102.00,
           "width": 240.00,
-          "x": 264.00,
-          "y": 168.00,
+          "x": 268.00,
+          "y": 144.00,
           "z": 7000.00
         },
         {
-          "config": "{\"name\":\"p1_k3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":168,\"z\":8000,\"width\":240,\"height\":104,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Prêmio Líquido\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"},\"Name\":\"_Medidas.Prêmio Líquido\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Prêmio Líquido'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_k3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":144,\"z\":8000,\"width\":240,\"height\":102,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Prêmio Líquido\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"},\"Name\":\"_Medidas.Prêmio Líquido\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Prêmio Líquido'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 104.00,
+          "height": 102.00,
           "width": 240.00,
           "x": 520.00,
-          "y": 168.00,
+          "y": 144.00,
           "z": 8000.00
         },
         {
-          "config": "{\"name\":\"p1_k4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":776,\"y\":168,\"z\":9000,\"width\":240,\"height\":104,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Subvenção Federal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Subvenção Federal\"},\"Name\":\"_Medidas.Subvenção Federal\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Subvenção Federal'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_k4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":772,\"y\":144,\"z\":9000,\"width\":240,\"height\":102,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Subvenção Federal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Subvenção Federal\"},\"Name\":\"_Medidas.Subvenção Federal\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Subvenção Federal'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 104.00,
+          "height": 102.00,
           "width": 240.00,
-          "x": 776.00,
-          "y": 168.00,
+          "x": 772.00,
+          "y": 144.00,
           "z": 9000.00
         },
         {
-          "config": "{\"name\":\"p1_k5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1024,\"y\":168,\"z\":10000,\"width\":240,\"height\":104,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Sinistralidade (%)'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_k5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1024,\"y\":144,\"z\":10000,\"width\":240,\"height\":102,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Sinistralidade (%)'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 104.00,
+          "height": 102.00,
           "width": 240.00,
           "x": 1024.00,
-          "y": 168.00,
+          "y": 144.00,
           "z": 10000.00
         },
         {
-          "config": "{\"name\":\"p1_sl_ano\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":72,\"z\":1000,\"width\":200,\"height\":88,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"ano\"},\"Name\":\"dim_calendario.ano\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Ano'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_sl_ano\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":72,\"z\":1000,\"width\":200,\"height\":62,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_calendario.ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"ano\"},\"Name\":\"dim_calendario.ano\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Ano'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 88.00,
+          "height": 62.00,
           "width": 200.00,
           "x": 16.00,
           "y": 72.00,
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"p1_sl_cult\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648,\"y\":72,\"z\":4000,\"width\":304,\"height\":88,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_cultura.nm_cultura_global\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_cultura\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"dim_cultura.nm_cultura_global\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Cultura'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_sl_cult\",\"layouts\":[{\"id\":0,\"position\":{\"x\":652,\"y\":72,\"z\":4000,\"width\":300,\"height\":62,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_cultura.nm_cultura_global\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_cultura\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"dim_cultura.nm_cultura_global\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Cultura'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 88.00,
-          "width": 304.00,
-          "x": 648.00,
+          "height": 62.00,
+          "width": 300.00,
+          "x": 652.00,
           "y": 72.00,
           "z": 4000.00
         },
         {
-          "config": "{\"name\":\"p1_sl_reg\",\"layouts\":[{\"id\":0,\"position\":{\"x\":224,\"y\":72,\"z\":2000,\"width\":224,\"height\":88,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_localidade.regiao\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_localidade\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"regiao\"},\"Name\":\"dim_localidade.regiao\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Região'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_sl_reg\",\"layouts\":[{\"id\":0,\"position\":{\"x\":228,\"y\":72,\"z\":2000,\"width\":220,\"height\":62,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_localidade.regiao\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_localidade\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"regiao\"},\"Name\":\"dim_localidade.regiao\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Região'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 88.00,
-          "width": 224.00,
-          "x": 224.00,
+          "height": 62.00,
+          "width": 220.00,
+          "x": 228.00,
           "y": 72.00,
           "z": 2000.00
         },
         {
-          "config": "{\"name\":\"p1_sl_seg\",\"layouts\":[{\"id\":0,\"position\":{\"x\":960,\"y\":72,\"z\":5000,\"width\":304,\"height\":88,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_seguradora.nm_razao_social\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_seguradora\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"nm_razao_social\"},\"Name\":\"dim_seguradora.nm_razao_social\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Seguradora'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_sl_seg\",\"layouts\":[{\"id\":0,\"position\":{\"x\":964,\"y\":72,\"z\":5000,\"width\":300,\"height\":62,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_seguradora.nm_razao_social\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_seguradora\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"nm_razao_social\"},\"Name\":\"dim_seguradora.nm_razao_social\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Seguradora'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 88.00,
-          "width": 304.00,
-          "x": 960.00,
+          "height": 62.00,
+          "width": 300.00,
+          "x": 964.00,
           "y": 72.00,
           "z": 5000.00
         },
         {
-          "config": "{\"name\":\"p1_sl_uf\",\"layouts\":[{\"id\":0,\"position\":{\"x\":456,\"y\":72,\"z\":3000,\"width\":184,\"height\":88,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_localidade.sg_uf\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_localidade\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"sg_uf\"},\"Name\":\"dim_localidade.sg_uf\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'UF'\"}}}}}]}}}",
+          "config": "{\"name\":\"p1_sl_uf\",\"layouts\":[{\"id\":0,\"position\":{\"x\":460,\"y\":72,\"z\":3000,\"width\":180,\"height\":62,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_localidade.sg_uf\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"dim_localidade\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"sg_uf\"},\"Name\":\"dim_localidade.sg_uf\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'UF'\"}}}}}]}}}",
           "filters": "[]",
-          "height": 88.00,
-          "width": 184.00,
-          "x": 456.00,
+          "height": 62.00,
+          "width": 180.00,
+          "x": 460.00,
           "y": 72.00,
           "z": 3000.00
         }
@@ -179,7 +179,7 @@
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"p3_k1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":76,\"z\":1000,\"width\":300,\"height\":102,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Área Segurada (ha)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Área Segurada (ha)\"},\"Name\":\"_Medidas.Área Segurada (ha)\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Área Segurada (ha)'\"}}}}}]}}}",
+          "config": "{\"name\":\"p3_k1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":76,\"z\":1000,\"width\":300,\"height\":102,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Área Segurada (ha)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Área Segurada (ha)\"},\"Name\":\"_Medidas.Área Segurada (ha)\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Área Segurada (ha)'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
@@ -188,7 +188,7 @@
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"p3_k2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":332,\"y\":76,\"z\":2000,\"width\":300,\"height\":102,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Subvenção Federal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Subvenção Federal\"},\"Name\":\"_Medidas.Subvenção Federal\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Subvenção Federal'\"}}}}}]}}}",
+          "config": "{\"name\":\"p3_k2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":332,\"y\":76,\"z\":2000,\"width\":300,\"height\":102,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Subvenção Federal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Subvenção Federal\"},\"Name\":\"_Medidas.Subvenção Federal\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Subvenção Federal'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
@@ -197,7 +197,7 @@
           "z": 2000.00
         },
         {
-          "config": "{\"name\":\"p3_k3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648,\"y\":76,\"z\":3000,\"width\":300,\"height\":102,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.% Subvenção sobre Prêmio\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"% Subvenção sobre Prêmio\"},\"Name\":\"_Medidas.% Subvenção sobre Prêmio\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'% Subvenção / Prêmio'\"}}}}}]}}}",
+          "config": "{\"name\":\"p3_k3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648,\"y\":76,\"z\":3000,\"width\":300,\"height\":102,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.% Subvenção sobre Prêmio\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"% Subvenção sobre Prêmio\"},\"Name\":\"_Medidas.% Subvenção sobre Prêmio\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'% Subvenção / Prêmio'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
@@ -206,7 +206,7 @@
           "z": 3000.00
         },
         {
-          "config": "{\"name\":\"p3_k4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":964,\"y\":76,\"z\":4000,\"width\":300,\"height\":102,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Prêmio Produtor\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Produtor\"},\"Name\":\"_Medidas.Prêmio Produtor\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Prêmio Pago pelo Produtor'\"}}}}}]}}}",
+          "config": "{\"name\":\"p3_k4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":964,\"y\":76,\"z\":4000,\"width\":300,\"height\":102,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Prêmio Produtor\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Produtor\"},\"Name\":\"_Medidas.Prêmio Produtor\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Prêmio Pago pelo Produtor'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
@@ -224,7 +224,7 @@
           "z": 5000.00
         },
         {
-          "config": "{\"name\":\"p3_tab_mun\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":454,\"z\":7000,\"width\":1248,\"height\":250,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_localidade.sg_uf\"},{\"queryRef\":\"dim_localidade.nm_municipio\"},{\"queryRef\":\"_Medidas.Qtd Apólices\"},{\"queryRef\":\"_Medidas.Área Segurada (ha)\"},{\"queryRef\":\"_Medidas.Subvenção Federal\"},{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"dim_localidade\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"sg_uf\"},\"Name\":\"dim_localidade.sg_uf\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"nm_municipio\"},\"Name\":\"dim_localidade.nm_municipio\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Qtd Apólices\"},\"Name\":\"_Medidas.Qtd Apólices\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Área Segurada (ha)\"},\"Name\":\"_Medidas.Área Segurada (ha)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Subvenção Federal\"},\"Name\":\"_Medidas.Subvenção Federal\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Detalhamento por UF e Município'\"}}}}}]}}}",
+          "config": "{\"name\":\"p3_tab_mun\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":454,\"z\":7000,\"width\":1248,\"height\":250,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_localidade.sg_uf\"},{\"queryRef\":\"dim_localidade.nm_municipio\"},{\"queryRef\":\"_Medidas.Qtd Apólices\"},{\"queryRef\":\"_Medidas.Área Segurada (ha)\"},{\"queryRef\":\"_Medidas.Subvenção Federal\"},{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"dim_localidade\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"sg_uf\"},\"Name\":\"dim_localidade.sg_uf\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"nm_municipio\"},\"Name\":\"dim_localidade.nm_municipio\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Qtd Apólices\"},\"Name\":\"_Medidas.Qtd Apólices\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Área Segurada (ha)\"},\"Name\":\"_Medidas.Área Segurada (ha)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Subvenção Federal\"},\"Name\":\"_Medidas.Subvenção Federal\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"101.07638696627225D\"}}}},\"selector\":{\"metadata\":\"_Medidas.Índice de Sinistralidade\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"707.8750513202347D\"}}}},\"selector\":{\"metadata\":\"dim_localidade.nm_municipio\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Detalhamento por UF e Município'\"}}}}}]}}}",
           "filters": "[]",
           "height": 250.00,
           "width": 1248.00,
@@ -254,8 +254,8 @@
       "ordinal": 1,
       "visualContainers": [
         {
-          "config": "{\"name\":\"p2_cult_sin\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648,\"y\":192,\"z\":6000,\"width\":616,\"height\":250,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_cultura.nm_cultura_global\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_cultura\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"dim_cultura.nm_cultura_global\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Índice de Sinistralidade (%) por Cultura'\"}}}}}]}}}",
-          "filters": "[]",
+          "config": "{\"name\":\"p2_cult_sin\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648,\"y\":192,\"z\":6000,\"width\":616,\"height\":250,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_cultura.nm_cultura_global\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Índice de Sinistralidade\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"dim_cultura\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"dim_cultura.nm_cultura_global\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Índice de Sinistralidade\"},\"Name\":\"_Medidas.Índice de Sinistralidade\"}]},\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Sinistralidade (%) — Top 10 Culturas por Prêmio'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"flt_top10_cult_sin\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_cultura\"}},\"Property\":\"nm_cultura_global\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_cultura\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"nm_cultura_global\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Prêmio Líquido\"}}}],\"Top\":10}}},\"Type\":2},{\"Name\":\"d\",\"Entity\":\"dim_cultura\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"nm_cultura_global\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0}]",
           "height": 250.00,
           "width": 616.00,
           "x": 648.00,
@@ -281,7 +281,7 @@
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"p2_k1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":76,\"z\":1000,\"width\":300,\"height\":102,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Qtd Sinistros\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Qtd Sinistros\"},\"Name\":\"_Medidas.Qtd Sinistros\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Apólices Sinistradas'\"}}}}}]}}}",
+          "config": "{\"name\":\"p2_k1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":76,\"z\":1000,\"width\":300,\"height\":102,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Qtd Sinistros\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Qtd Sinistros\"},\"Name\":\"_Medidas.Qtd Sinistros\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Apólices Sinistradas'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
@@ -290,7 +290,7 @@
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"p2_k2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":332,\"y\":76,\"z\":2000,\"width\":300,\"height\":102,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Taxa de Sinistro (%)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Taxa de Sinistro (%)\"},\"Name\":\"_Medidas.Taxa de Sinistro (%)\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taxa de Sinistro (%)'\"}}}}}]}}}",
+          "config": "{\"name\":\"p2_k2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":332,\"y\":76,\"z\":2000,\"width\":300,\"height\":102,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Taxa de Sinistro (%)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Taxa de Sinistro (%)\"},\"Name\":\"_Medidas.Taxa de Sinistro (%)\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taxa de Sinistro (%)'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
@@ -299,7 +299,7 @@
           "z": 2000.00
         },
         {
-          "config": "{\"name\":\"p2_k3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648,\"y\":76,\"z\":3000,\"width\":300,\"height\":102,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Valor Indenizado\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Valor Indenizado\"},\"Name\":\"_Medidas.Valor Indenizado\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total Indenizado'\"}}}}}]}}}",
+          "config": "{\"name\":\"p2_k3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648,\"y\":76,\"z\":3000,\"width\":300,\"height\":102,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Valor Indenizado\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Valor Indenizado\"},\"Name\":\"_Medidas.Valor Indenizado\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total Indenizado'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
@@ -308,7 +308,7 @@
           "z": 3000.00
         },
         {
-          "config": "{\"name\":\"p2_k4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":964,\"y\":76,\"z\":4000,\"width\":300,\"height\":102,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Taxa Média (%)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Taxa Média (%)\"},\"Name\":\"_Medidas.Taxa Média (%)\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taxa Média do Seguro'\"}}}}}]}}}",
+          "config": "{\"name\":\"p2_k4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":964,\"y\":76,\"z\":4000,\"width\":300,\"height\":102,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Taxa Média (%)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Taxa Média (%)\"},\"Name\":\"_Medidas.Taxa Média (%)\"}]},\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taxa Média do Seguro'\"}}}}}]}}}",
           "filters": "[]",
           "height": 102.00,
           "width": 300.00,
