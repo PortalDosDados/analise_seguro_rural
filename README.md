@@ -37,7 +37,8 @@ analise_seguro_rural/
 ├── download_csv.py   # Extração e consolidação dos CSVs do PSR (2006–2025)
 ├── database.py       # Conexão SQLAlchemy com PostgreSQL via .env
 ├── setup_db.py       # Criação dos schemas bronze/silver/gold e tabelas iniciais
-└── load_bronze.py    # Carga bruta dos CSVs para bronze.psr_raw via COPY
+├── load_bronze.py    # Carga bruta dos CSVs para bronze.psr_raw via COPY
+└── load_silver.py    # Transformação ELT idempotente bronze -> silver
 ```
 
 ---
@@ -64,6 +65,7 @@ Configure o `.env` (`DB_USER`, `DB_PASS`, `DB_HOST`, `DB_PORT`, `DB_NAME`) e exe
 python database.py
 python setup_db.py
 python load_bronze.py
+python load_silver.py
 ```
 
 ### 4. Lint e Testes

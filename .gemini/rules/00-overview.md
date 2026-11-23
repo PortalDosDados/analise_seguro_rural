@@ -17,5 +17,6 @@
 - Testar conexão PostgreSQL: `python database.py` `[database.py]`
 - Estruturar schemas Medalhão: `python setup_db.py` `[setup_db.py]`
 - Carregar camada bronze: `python load_bronze.py` `[load_bronze.py]`
+- Carregar camada silver: `python load_silver.py` `[load_silver.py]`
 - Lint Python: `ruff check .` `[pyproject.toml]`
 - Testes unitários: `pytest` `[pyproject.toml]`

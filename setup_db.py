@@ -53,7 +53,7 @@ DDL_STATEMENTS: tuple[str, ...] = (
     );
     """,
     """
-    CREATE TABLE IF NOT EXISTS silver.tb_seguro_rural (
+    CREATE TABLE IF NOT EXISTS silver.psr_clean (
         id_proposta               BIGINT PRIMARY KEY,
         nm_razao_social           VARCHAR(255),
         cd_processo_susep         BIGINT,

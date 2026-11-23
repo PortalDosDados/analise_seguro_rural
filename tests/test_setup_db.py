@@ -30,7 +30,7 @@ def test_ddl_contem_schemas_medalhao() -> None:
     assert "CREATE SCHEMA IF NOT EXISTS silver;" in sql_all
     assert "CREATE SCHEMA IF NOT EXISTS gold;" in sql_all
     assert "CREATE TABLE IF NOT EXISTS bronze.psr_raw" in sql_all
-    assert "CREATE TABLE IF NOT EXISTS silver.tb_seguro_rural" in sql_all
+    assert "CREATE TABLE IF NOT EXISTS silver.psr_clean" in sql_all
 
     silver_ddl = DDL_STATEMENTS[-1]
     assert "nm_segurado" not in silver_ddl
