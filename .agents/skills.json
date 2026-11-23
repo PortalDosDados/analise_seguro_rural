@@ -1,0 +1,25 @@
+{
+  "inherits": [
+    {
+      "path": "~/.gemini/config",
+      "exclude": [
+        "flutter.*",
+        "dart.*",
+        "android.*",
+        "compose.*",
+        "chrome-devtools.*",
+        "a11y.*",
+        "lcp.*",
+        "cookie.*",
+        "memory-leak.*",
+        "troubleshooting",
+        "notion.*",
+        "gemini-.*",
+        "gdrive",
+        "gsheets",
+        "gslides",
+        "gerador-.*"
+      ]
+    }
+  ]
+}

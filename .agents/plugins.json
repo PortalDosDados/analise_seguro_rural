@@ -1,0 +1,8 @@
+{
+  "inherits": [
+    {
+      "path": "~/.gemini/config/plugins",
+      "include_only": []
+    }
+  ]
+}

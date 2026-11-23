@@ -1,14 +1,24 @@
 # 🌾 Análise de Seguro Rural (PSR - Brasil)
 
-![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18%2B-blue?style=for-the-badge&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow?style=for-the-badge&logo=powerbi&logoColor=black)
 
 ## 👋 Sobre o Projeto
 
-Projeto de Engenharia de Dados e Análise de Dados sobre o **Programa de Subvenção ao Prêmio do Seguro Rural (PSR)**, gerido pelo Ministério da Agricultura e Pecuária (MAPA).
+Projeto de Engenharia e Análise de Dados sobre o **Programa de Subvenção ao Prêmio do Seguro Rural (PSR)**, gerido pelo Ministério da Agricultura e Pecuária (MAPA), com visualização final no **Power BI**.
 
 Os dados são públicos e originários do **SISSER** (Sistema de Subvenção Econômica ao Prêmio do Seguro Rural):
 - **Fonte Oficial:** [Dados Abertos - Agricultura](https://dados.agricultura.gov.br/dataset/sisser3)
+
+---
+
+## 🏗️ Arquitetura (Modelo Medalhão)
+
+O banco PostgreSQL (`db_seguro_rural`) segue a arquitetura em 3 schemas:
+- **`bronze`**: dados brutos (`TEXT`), espelho fiel dos CSVs originais.
+- **`silver`**: dados limpos, tipados, deduplicados (`1` linha por `id_proposta`) e com colunas PII (`nm_segurado`, `nr_documento_segurado`) omitidas/mascaradas.
+- **`gold`**: tabelas e views analíticas prontas para consumo no **Power BI**.
 
 ---
 
@@ -16,10 +26,16 @@ Os dados são públicos e originários do **SISSER** (Sistema de Subvenção Eco
 
 ```text
 analise_seguro_rural/
+├── .agents/          # Isolamento de workspace (plugins/skills)
+├── .gemini/rules/    # Diretrizes modulares de engenharia e governança
+├── tests/            # Testes unitários (pytest)
 ├── .gitignore
+├── GEMINI.md
+├── pyproject.toml    # Configuração do ruff e pytest
 ├── README.md
 ├── requirements.txt
-└── download_csv.py   # Download e consolidação dos CSVs do PSR (2006–2025)
+├── download_csv.py   # Extração e consolidação dos CSVs do PSR (2006–2025)
+└── database.py       # Conexão SQLAlchemy com PostgreSQL via .env
 ```
 
 ---
@@ -38,4 +54,17 @@ pip install -r requirements.txt
 python download_csv.py
 ```
 
-O script cria a pasta `data/` (ignorada pelo Git), baixa os arquivos anuais (`2006–2015`, `2016–2024` e `2025`) e gera o dataset consolidado em `data/seguro_rural_total.csv`.
+### 3. Testar conexão com o PostgreSQL
+
+Configure o `.env` (`DB_USER`, `DB_PASS`, `DB_HOST`, `DB_PORT`, `DB_NAME`) e execute:
+
+```bash
+python database.py
+```
+
+### 4. Lint e Testes
+
+```bash
+ruff check .
+pytest
+```

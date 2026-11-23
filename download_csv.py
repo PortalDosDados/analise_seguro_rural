@@ -1,6 +1,7 @@
-import requests
 import os
+
 import pandas as pd
+import requests
 
 URL1 = 'https://dados.agricultura.gov.br/dataset/baefdc68-9bad-4204-83e8-f2888b79ab48/resource/97f29a77-4e7e-44bf-99b3-a2d75911b6bf/download/dados_abertos_psr_2006a2015csv.csv'
 
@@ -30,9 +31,10 @@ baixar(URL3, 'data/psr_2025.csv')
 
 def mergear_dados():
 
-    df1 = pd.read_csv('data/psr_2006_2015.csv', sep=";", encoding="ansi", on_bad_lines='skip', engine='python')
-    df2 = pd.read_csv('data/psr_2016_2024.csv', sep=";", encoding="ansi", on_bad_lines='skip', engine='python')
-    df3 = pd.read_csv('data/psr_2025.csv', sep=";", encoding="ansi", on_bad_lines='skip', engine='python')
+    read_opts = dict(sep=";", encoding="ansi", on_bad_lines="skip", engine="python")
+    df1 = pd.read_csv("data/psr_2006_2015.csv", **read_opts)
+    df2 = pd.read_csv("data/psr_2016_2024.csv", **read_opts)
+    df3 = pd.read_csv("data/psr_2025.csv", **read_opts)
 
     df_total = pd.concat([df1, df2, df3])
 
